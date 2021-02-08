@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Font Resizer</title>
+	<style type="text/css">
+		.box{
+			width:100px;
+			height:100px;
+			background-color:black;
+			position: absolute;
+		}
+		button{
+			padding:10px 20px 10px 20px;
+					}
+	</style>
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<script type="text/javascript" src="js/jquery-3.1.1.js"></script>
+	
+</head>
+<body>
+	<p class="content">Hello, Open Sourcians</p>
+	<button id="decrease"> - </button>
+	<button id="increase"> + </button>
+	<br>
+	<p class="error"></p>
+    
+    <script>
+        $(document).ready(function(){
+            
+            $("#decrease").click(function(){
+                $(".content").animate({
+                    fontSize: "-=2px"
+                    
+                })
+                if (parseInt($(".content").css("font-size")) <= 10) {
+                    $(".content").stop()
+                    $(".error").text("Error Message Minimum Size")
+                }
+                else {
+                    $(".error").text("")
+                }
+            })
+            $("#increase").click(function(){
+                $(".content").animate({
+                    fontSize: "+=2px"
+                })
+                if (parseInt($(".content").css("font-size")) >= 20) {
+                    $(".content").stop()
+                    $(".error").text("Error Message Maximum Size")
+                }
+                else {
+                    $(".error").text("")
+                }
+            })
+        })
+    </script>
+</body>
+</html>
